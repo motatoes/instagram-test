@@ -1,0 +1,16 @@
+
+body {
+	background-color: #f0f0f0;
+	font-family: helvetica,sans-serif;
+}
+
+#content {
+	width: 960px;
+	margin: 0 auto;
+}
+#photos {
+	width: 100%;
+	padding: 10px;
+	margin: 10px auto 0 auto;
+	border: 1px solid #999;
+}
