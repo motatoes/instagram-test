@@ -5,7 +5,7 @@ var InstagramApp = (function(window, document, $) {
 		client_id: "1780a9ec5baf4cd8b0b934fccd0b3580",
 
 		// Id of the authentication button
-		authenticate_btn_id: "instagram_authenticate_btn",
+		authenticate_btn_id: "instagram_get_btn",
 
 		instagram_auth_url: "https://instagram.com/oauth/authorize/?client_id={{CLIENT-ID}}&redirect_uri={{REDIRECT-URI}}&response_type=token",
 
