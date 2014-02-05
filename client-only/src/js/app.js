@@ -9,7 +9,7 @@ var InstagramApp = (function(window, document, $) {
 
 		instagram_auth_url: "https://instagram.com/oauth/authorize/?client_id={{CLIENT-ID}}&redirect_uri={{REDIRECT-URI}}&response_type=token",
 
-		redirect_uri: "http://sane.mooo.com/",
+		redirect_uri: "http://sane.mooo.com/instagram-test/client-only/src/",
 
 		init: function() {
 			var ia = InstagramApp,
