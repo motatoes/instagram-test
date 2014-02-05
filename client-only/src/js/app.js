@@ -17,7 +17,7 @@ var InstagramApp = (function(window, document, $) {
 				btn;
 
 			btn = $("#" + ia.authenticate_btn_id);
-			console.log(btn);
+
 			btn.on("click", ia.authenticate);
 		},
 
@@ -52,7 +52,7 @@ var InstagramApp = (function(window, document, $) {
 		get_access_token: function() {
 			var a = document.createElement("a");
 			a.href = window.location;
-			console.log(a);
+			console.log(a.hash);
 		}
 
 	}
