@@ -63,7 +63,7 @@ var InstagramApp = (function(window, document, $) {
 			token = token.split('=');
 
 			if (length(token) == 2) {
-				if token[0] == 'access_token' {
+				if (token[0] == 'access_token') {
 					return token[1];
 				}
 				else {
