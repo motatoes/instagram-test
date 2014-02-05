@@ -49,7 +49,7 @@ var InstagramApp = (function(window, document, $) {
 		},
 
 		// 
-		append_images: function(token, ia.images_div_id) {
+		append_images: function(token, images_div_id) {
 			var ia = InstagramApp,
 				media_url = ia.media_url;
 			
@@ -60,6 +60,7 @@ var InstagramApp = (function(window, document, $) {
 				type: 'GET',
 				success: function(data) {
 					console.log(data)
+					JSON.parse(data);
 				},
 				error: function (respose) {
 					alert('oops! something went wrong while requesting your images');
