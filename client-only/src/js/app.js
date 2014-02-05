@@ -5,6 +5,7 @@ var InstagramApp = (function(window, document, $) {
 		client_id: "1780a9ec5baf4cd8b0b934fccd0b3580",
 
 		redirect_uri: "http://sane.mooo.com/instagram-test/client-only/src/",
+
 		instagram_auth_url: "https://instagram.com/oauth/authorize/?client_id={{CLIENT-ID}}&redirect_uri={{REDIRECT-URI}}&response_type=token",
 
 		// Id of the authentication button
@@ -26,7 +27,7 @@ var InstagramApp = (function(window, document, $) {
 				auth_url = ia.craft_authentication_url(),
 				token;
 
-			token = ia.get_access_token()
+			token = ia.get_access_token();
 
 			if (token == null)	{	
 				// need to authenticate first!
@@ -34,7 +35,7 @@ var InstagramApp = (function(window, document, $) {
 			}
 			else {
 				// Fetch the images here
-				
+
 			}
 
 		},
@@ -61,7 +62,7 @@ var InstagramApp = (function(window, document, $) {
 			token = a.hash.substr();
 			token = token.split('=');
 
-			if (token.length == 2) {
+			if (length(token) == 2) {
 				if token[0] == 'access_token' {
 					return token[1];
 				}
