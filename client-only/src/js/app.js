@@ -50,9 +50,10 @@ var InstagramApp = (function(window, document, $) {
 				token = ia.check_access_token();
 				if (token != null) {
 					ia.get_images(token, function(images) {
+						var offset = (ia.current_offset_count + ia.append_at_a_time >= images.length) ? images.length-1 : ia.current_offset_count;
 						images = ia.sort_image_data(images, "descending");
 						$('#' + ia.images_div_id).empty();
-						ia.append_images(images, ia.images_div_id, ia.append_at_a_time, ia.current_offset_count);
+						ia.append_images(images, ia.images_div_id, ia.append_at_a_time, offset);
 						ia.current_offset_count = ia.current_offset_count + ia.append_at_a_time;
 						ia.images_data = images;
 						// Enable the button
