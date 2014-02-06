@@ -115,7 +115,7 @@ var InstagramApp = (function(window, document, $) {
 			// Default values
 			var i,
 				img,
-				a
+				a,
 				endIndex;
 
 			count = count === undefined ? 20 : count;
