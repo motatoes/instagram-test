@@ -65,6 +65,7 @@ var InstagramApp = (function(window, document, $) {
 				},
 				error: function (respose) {
 					alert('oops! something went wrong while requesting your images');
+					console.log(response);
 				}
 
 			});
@@ -90,7 +91,6 @@ var InstagramApp = (function(window, document, $) {
 			token = a.hash.substr(1);
 			token = token.split('=');
 
-			console.log(token);
 
 			if (token.length == 2) {
 				if (token[0] == 'access_token') {
