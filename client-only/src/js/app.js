@@ -61,25 +61,7 @@ var InstagramApp = (function(window, document, $) {
 				dataType: "jsonp",
 				contentType: "application/json", 
 				success: function(response) {
-					var mediaData = response.data;
-					// Will hold links to all the images, and the number of likes
-					var imagesData = [];
-					var type;
-					var tmp;
-
-					console.log(response);
-					for (i in mediaData) {
-						tmp = mediaData[i];
-						console.log(tmp.type);
-						type = tmp.type;
-						if (type == 'image') {
-							imagesData.push({
-												thumbnail: tmp.images.thumbnail.url,
-												standard_res: tmp.images.standard_resolution.url,
-												likes_count: tmp.likes.count
-											});
-						}
-					}
+					var imagesData = ia.filter_instagram_response(response);
 
 					console.log(imagesData);
 				},
@@ -90,6 +72,28 @@ var InstagramApp = (function(window, document, $) {
 				}
 
 			});
+		},
+
+		filter_instagram_response: function (response) {
+			var mediaData = response.data;
+			// Will hold links to all the images, and the number of likes
+			var imagesData = [];
+			var type;
+			var tmp;
+
+			for (i in mediaData) {
+				tmp = mediaData[i];
+				console.log(tmp.type);
+				type = tmp.type;
+				if (type == 'image') {
+					imagesData.push({
+										thumbnail: tmp.images.thumbnail.url,
+										standard_res: tmp.images.standard_resolution.url,
+										likes_count: tmp.likes.count
+									});
+				}
+			}
+
 		},
 
 		craft_authentication_url: function() {
