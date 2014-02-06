@@ -27,7 +27,7 @@ var InstagramApp = (function(window, document, $) {
 					ia.get_images(token, function(images) {
 						console.log(images);
 						images = ia.sort_image_data(images);
-						console.log(images);
+						console.log(images, "ascending");
 					});
 				}
 			});
