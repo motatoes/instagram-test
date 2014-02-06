@@ -1,15 +1,17 @@
 
 var InstagramApp = (function(window, document, $) {
 	return {
+
+		// **Instagram data
 		// The application client id
 		client_id: "1780a9ec5baf4cd8b0b934fccd0b3580",
-
 		redirect_uri: "http://sane.mooo.com/instagram-test/client-only/src/",
 		media_url: "https://api.instagram.com/v1/users/self/media/recent/?access_token={{ACCESS-TOKEN}}",
-
 		instagram_auth_url: "https://instagram.com/oauth/authorize/?client_id={{CLIENT-ID}}&redirect_uri={{REDIRECT-URI}}&response_type=token",
 
-		// DOM stuff
+
+
+		// **DOM stuff
 		// Id of the authentication button
 		authenticate_btn_id: "instagram_get_btn",
 		images_div_id: "photos",
@@ -25,9 +27,9 @@ var InstagramApp = (function(window, document, $) {
 				token = ia.check_access_token();
 				if (token != null) {
 					ia.get_images(token, function(images) {
-						console.log(images);
 						images = ia.sort_image_data(images, "descending");
-						console.log(images);
+						$('#' + ia.images_div_id).clear();
+						ia.append_images(ia.images_div_id);
 					});
 				}
 			});
@@ -75,6 +77,26 @@ var InstagramApp = (function(window, document, $) {
 				}
 
 			});
+		},
+
+		append_images: function(metadata, divId, count, offset) {
+			// Default values
+			var i,
+				img,
+				a;
+
+			count = count === undefined ? 0 : count;
+			offset = offset === undefined ? 20 : offset;
+
+			for (i=offset;i<offset+count;i++) {
+				a = document.createElement("a");
+				img = documet.createElement("img");
+				img.src = metadata[i].thumbnail;
+				a.href = metadata[i].standard_res;
+				$(img).append(a);
+				console.log(a);
+				$('#' + divId).append(a);
+			}
 		},
 
 		filter_instagram_response: function (response) {
