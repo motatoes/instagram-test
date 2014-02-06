@@ -9,8 +9,6 @@ var InstagramApp = (function(window, document, $) {
 		media_url: "https://api.instagram.com/v1/users/self/media/recent/?access_token={{ACCESS-TOKEN}}",
 		instagram_auth_url: "https://instagram.com/oauth/authorize/?client_id={{CLIENT-ID}}&redirect_uri={{REDIRECT-URI}}&response_type=token",
 
-
-
 		// **DOM stuff
 		// Id of the authentication button
 		authenticate_btn_id: "instagram_get_btn",
@@ -18,28 +16,38 @@ var InstagramApp = (function(window, document, $) {
 		seemore_div_id: "seemore",
 
 		// **Keeping track of the number of images appended
-		appended_images_count: 0,
 		current_offset_count: 0,
 		append_at_a_time: 1,
-		
 
+		images_data: [],
 
 		init: function() {
 			var ia = InstagramApp,
 				accessToken,
-				btn;
+				getpics_btn,
+				seemore_btn;
 
-			btn = $("#" + ia.authenticate_btn_id);
-
+			getpics_btn = $("#" + ia.authenticate_btn_id);
+			seemore_btn = $('#' + ia.seemore_div_id);
 			// Event listener
 
-			btn.on("click", function() {
+
+			seemore_btn.on("click", function() {
+				ia.append_images(ia.images_data, ia.images_div_id, ia.append_at_a_time, ia.appended_images_count);				
+				ia.current_offset_count = ia.current_offset_count + ia.append_at_a_time;
+			});
+
+			getpics_btn.on("click", function() {
 				token = ia.check_access_token();
 				if (token != null) {
 					ia.get_images(token, function(images) {
 						images = ia.sort_image_data(images, "descending");
 						$('#' + ia.images_div_id).empty();
-						ia.append_images(images, ia.images_div_id, ia.append_at_a_time, ia.appended_images_count);
+						ia.append_images(images, ia.images_div_id, ia.append_at_a_time, ia.current_offset_count);
+						ia.current_offset_count = ia.current_offset_count + ia.append_at_a_time;
+						ia.images_data = images;
+						// Enable the button
+						$(seemore_btn).removeAttr("disabled");
 					});
 				}
 			});
