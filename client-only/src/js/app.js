@@ -61,9 +61,10 @@ var InstagramApp = (function(window, document, $) {
 					console.log(data)
 					JSON.parse(data);
 				},
-				error: function (response) {
+				error: function (response, textStatus, errorThrown) {
 					alert('oops! something went wrong while requesting your images');
-					console.log(response);
+					console.log(textStatus);
+					console.log(errorThrown);
 				}
 
 			});
