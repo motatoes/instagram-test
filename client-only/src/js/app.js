@@ -43,7 +43,6 @@ var InstagramApp = (function(window, document, $) {
 			}
 			else {
 				// return the token
-				console.log(token);
 				return token;
 			}
 
@@ -58,12 +57,11 @@ var InstagramApp = (function(window, document, $) {
 
 			$.ajax({
 				url: media_url,
-				type: 'GET',
 				success: function(data) {
 					console.log(data)
 					JSON.parse(data);
 				},
-				error: function (respose) {
+				error: function (response) {
 					alert('oops! something went wrong while requesting your images');
 					console.log(response);
 				}
