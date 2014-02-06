@@ -83,7 +83,6 @@ var InstagramApp = (function(window, document, $) {
 
 			for (i in mediaData) {
 				tmp = mediaData[i];
-				console.log(tmp.type);
 				type = tmp.type;
 				if (type == 'image') {
 					imagesData.push({
@@ -93,6 +92,8 @@ var InstagramApp = (function(window, document, $) {
 									});
 				}
 			}
+
+			return imagesData
 
 		},
 
