@@ -62,11 +62,26 @@ var InstagramApp = (function(window, document, $) {
 				contentType: "application/json", 
 				success: function(response) {
 					var mediaData = response.data;
-					console.log(response);
+					// Will hold links to all the images, and the number of likes
+					var imagesData = [];
+					var type;
+					var tmp;
 
+					console.log(response);
 					for (i in mediaData) {
-						console.log(mediaData[i].type);
+						tmp = mediaData[i];
+						console.log(tmp.type);
+						type = tmp.type;
+						if (type == 'image') {
+							imagesData.push({
+												thumbnail: tmp.images.thumbnail.url,
+												standard_res: tmp.images.standard_resolution.url,
+												likes_count: tmp.likes.count
+											});
+						}
 					}
+
+					console.log(imagesData);
 				},
 				error: function (response, textStatus, errorThrown) {
 					alert('oops! something went wrong while requesting your images');
