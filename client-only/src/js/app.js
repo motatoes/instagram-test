@@ -86,8 +86,8 @@ var InstagramApp = (function(window, document, $) {
 
 			// Parsing the current url to check if the access token already exists
 			a.href = window.location;
-			// Removing the hash
-			token = a.hash.substr();
+			// Removing the hash (first character)
+			token = a.hash.substr(1);
 			token = token.split('=');
 
 			console.log(token);
