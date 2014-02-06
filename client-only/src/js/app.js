@@ -58,11 +58,11 @@ var InstagramApp = (function(window, document, $) {
 			$.ajax({
 				url: media_url,
 				jsonp: "callback",
-				// dataType: "jsonp",
+				dataType: "jsonp",
 				contentType: "application/json", 
 				success: function(data) {
 					JSON.parse(data);
-					console.log(data)
+					console.log(data);
 				},
 				error: function (response, textStatus, errorThrown) {
 					alert('oops! something went wrong while requesting your images');
