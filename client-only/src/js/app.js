@@ -42,7 +42,7 @@ var InstagramApp = (function(window, document, $) {
 				ia.current_offset_count = ia.current_offset_count + ia.append_at_a_time;
 
 				if (ia.current_offset_count >= ia.append_at_a_time) {
-					$(this).attr(disabled, "disabled");
+					$(this).attr("disabled", "disabled");
 				}
 			});
 
@@ -57,7 +57,7 @@ var InstagramApp = (function(window, document, $) {
 						ia.images_data = images;
 						// Enable the button
 						$(seemore_btn).removeAttr("disabled");
-						$(getpics_btn).attr(disabled, "disabled");
+						$(getpics_btn).attr("disabled", "disabled");
 					});
 				}
 			});
