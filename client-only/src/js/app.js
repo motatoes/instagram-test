@@ -29,7 +29,7 @@ var InstagramApp = (function(window, document, $) {
 					ia.get_images(token, function(images) {
 						images = ia.sort_image_data(images, "descending");
 						$('#' + ia.images_div_id).empty();
-						ia.append_images(images, ia.images_div_id, 0, 20);
+						ia.append_images(images, ia.images_div_id, 20, 0);
 					});
 				}
 			});
