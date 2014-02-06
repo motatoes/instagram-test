@@ -23,6 +23,7 @@ var InstagramApp = (function(window, document, $) {
 
 		init: function() {
 			var ia = InstagramApp,
+				token,
 				accessToken,
 				getpics_btn,
 				seemore_btn;
@@ -31,6 +32,10 @@ var InstagramApp = (function(window, document, $) {
 			seemore_btn = $('#' + ia.seemore_div_id);
 			// Event listener
 
+			token = ia.check_access_token();
+			if (token == null) {
+				getpics_btn.innerHTML = "Authenticate first"; 
+			}
 
 			seemore_btn.on("click", function() {
 				ia.append_images(ia.images_data, ia.images_div_id, ia.append_at_a_time, ia.current_offset_count);
