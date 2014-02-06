@@ -93,7 +93,7 @@ var InstagramApp = (function(window, document, $) {
 				img = document.createElement("img");
 				img.src = metadata[i].thumbnail;
 				a.href = metadata[i].standard_res;
-				$(img).append(a);
+				$(a).append(img);
 				console.log(a);
 				$('#' + divId).append(a);
 			}
