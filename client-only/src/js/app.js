@@ -29,7 +29,7 @@ var InstagramApp = (function(window, document, $) {
 					ia.get_images(token, function(images) {
 						images = ia.sort_image_data(images, "descending");
 						$('#' + ia.images_div_id).empty();
-						ia.append_images(ia.images_div_id);
+						ia.append_images(images, ia.images_div_id, 0, 20);
 					});
 				}
 			});
@@ -85,10 +85,10 @@ var InstagramApp = (function(window, document, $) {
 				img,
 				a;
 
-			count = count === undefined ? 0 : count;
-			offset = offset === undefined ? 20 : offset;
+			count = count === undefined ? 20 : count;
+			offset = offset === undefined ? 0 : offset;
 
-			for (i=offset;i<offset+count;i++) {
+			for (i=offset;i<(offset+count);i++) {
 				a = document.createElement("a");
 				img = documet.createElement("img");
 				img.src = metadata[i].thumbnail;
