@@ -26,8 +26,8 @@ var InstagramApp = (function(window, document, $) {
 				if (token != null) {
 					ia.get_images(token, function(images) {
 						console.log(images);
-						images = ia.sort_image_data(images);
-						console.log(images, "ascending");
+						images = ia.sort_image_data(images, "ascending");
+						console.log(images);
 					});
 				}
 			});
@@ -104,12 +104,12 @@ var InstagramApp = (function(window, document, $) {
 
 			if (order === undefined || order === "descending") {
 				return data.sort(function(a, b) {
-					return b.likes_count - a.likes_count
+					return b.likes_count - a.likes_count;
 				})
 			}
 			else {
 				return data.sort(function(a, b) {
-					return a.likes_count - b.likes_count
+					return a.likes_count - b.likes_count;
 				})
 			}
 		},
