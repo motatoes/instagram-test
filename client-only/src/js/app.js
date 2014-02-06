@@ -17,7 +17,7 @@ var InstagramApp = (function(window, document, $) {
 
 		// **Keeping track of the number of images appended
 		current_offset_count: 0,
-		append_at_a_time: 1,
+		append_at_a_time: 20,
 
 		images_data: [],
 
@@ -57,7 +57,7 @@ var InstagramApp = (function(window, document, $) {
 						ia.images_data = images;
 						// Enable the button
 						$(seemore_btn).removeAttr("disabled");
-						$(this).attr({disabled: "disabled"});
+						$(getpics_btn).attr({disabled: "disabled"});
 					});
 				}
 			});
