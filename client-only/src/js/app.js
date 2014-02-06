@@ -17,6 +17,12 @@ var InstagramApp = (function(window, document, $) {
 		images_div_id: "photos",
 		seemore_div_id: "seemore",
 
+		// **Keeping track of the number of images appended
+		appended_images_count: 0,
+		current_offset_count: 0,
+		append_at_a_time: 1,
+		
+
 
 		init: function() {
 			var ia = InstagramApp,
@@ -25,13 +31,15 @@ var InstagramApp = (function(window, document, $) {
 
 			btn = $("#" + ia.authenticate_btn_id);
 
+			// Event listener
+
 			btn.on("click", function() {
 				token = ia.check_access_token();
 				if (token != null) {
 					ia.get_images(token, function(images) {
 						images = ia.sort_image_data(images, "descending");
 						$('#' + ia.images_div_id).empty();
-						ia.append_images(images, ia.images_div_id, 20, 0);
+						ia.append_images(images, ia.images_div_id, ia.append_at_a_time, ia.appended_images_count);
 					});
 				}
 			});
