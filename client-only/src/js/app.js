@@ -57,6 +57,7 @@ var InstagramApp = (function(window, document, $) {
 						ia.images_data = images;
 						// Enable the button
 						$(seemore_btn).removeAttr("disabled");
+						$(this).attr({disabled: "disabled"});
 					});
 				}
 			});
