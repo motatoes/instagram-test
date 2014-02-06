@@ -33,8 +33,12 @@ var InstagramApp = (function(window, document, $) {
 
 
 			seemore_btn.on("click", function() {
-				ia.append_images(ia.images_data, ia.images_div_id, ia.append_at_a_time, ia.appended_images_count);				
+				ia.append_images(ia.images_data, ia.images_div_id, ia.append_at_a_time, ia.current_offset_count);
 				ia.current_offset_count = ia.current_offset_count + ia.append_at_a_time;
+
+				if (ia.current_offset_count >= ia.append_at_a_time) {
+					$(this).attr({disabled: "disabled"});
+				}
 			});
 
 			getpics_btn.on("click", function() {
