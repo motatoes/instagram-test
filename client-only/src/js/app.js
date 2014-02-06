@@ -17,7 +17,7 @@ var InstagramApp = (function(window, document, $) {
 
 		// **Keeping track of the number of images appended
 		current_offset_count: 0,
-		append_at_a_time: 1,
+		append_at_a_time: 20,
 
 		images_data: [],
 
