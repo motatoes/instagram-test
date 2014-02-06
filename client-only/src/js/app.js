@@ -92,6 +92,7 @@ var InstagramApp = (function(window, document, $) {
 				a = document.createElement("a");
 				img = document.createElement("img");
 				img.src = metadata[i].thumbnail;
+				img.alt = "Number of likes: " + metadata[i].likes_count;
 				a.href = metadata[i].standard_res;
 				$(a).append(img);
 				console.log(a);
