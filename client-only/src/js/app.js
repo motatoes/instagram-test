@@ -24,7 +24,11 @@ var InstagramApp = (function(window, document, $) {
 			btn.on("click", function() {
 				token = ia.check_access_token();
 				if (token != null) {
-					ia.append_images(token, ia.images_div_id)
+					ia.get_images(token, function(images) {
+						images = ia.sort_image_data(images);
+						console.log(images);
+						
+					});
 				}
 			});
 		},
@@ -49,7 +53,7 @@ var InstagramApp = (function(window, document, $) {
 		},
 
 		// 
-		append_images: function(token, images_div_id) {
+		get_images: function(token, images_div_id) {
 			var ia = InstagramApp,
 				media_url = ia.media_url;
 			
@@ -62,7 +66,7 @@ var InstagramApp = (function(window, document, $) {
 				contentType: "application/json", 
 				success: function(response) {
 					var imagesData = ia.filter_instagram_response(response);
-
+					)
 					console.log(imagesData);
 				},
 				error: function (response, textStatus, errorThrown) {
@@ -95,6 +99,20 @@ var InstagramApp = (function(window, document, $) {
 
 			return imagesData
 
+		},
+
+		sort_image_data: function(data, order) {
+
+			if (order === undefined || order === "descending") {
+				return data.sort(function(a, b) {
+					return b.likes_count - a.likes_count
+				})
+			}
+			else {
+				return data.sort(function(a, b) {
+					return a.likes_count - b.likes_count
+				})
+			}
 		},
 
 		craft_authentication_url: function() {
