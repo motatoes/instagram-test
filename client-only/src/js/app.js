@@ -61,9 +61,11 @@ var InstagramApp = (function(window, document, $) {
 				dataType: "jsonp",
 				contentType: "application/json", 
 				success: function(response) {
+					var mediaData = response.data;
 					console.log(response);
-					for (i in response.data) {
-						console.log(response.data.type);
+
+					for (i in mediaData) {
+						console.log(mediaData[i].type);
 					}
 				},
 				error: function (response, textStatus, errorThrown) {
