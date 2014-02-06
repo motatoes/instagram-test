@@ -53,7 +53,7 @@ var InstagramApp = (function(window, document, $) {
 		},
 
 		// 
-		get_images: function(token, images_div_id) {
+		get_images: function(token, callback) {
 			var ia = InstagramApp,
 				media_url = ia.media_url;
 			
@@ -66,7 +66,7 @@ var InstagramApp = (function(window, document, $) {
 				contentType: "application/json", 
 				success: function(response) {
 					var imagesData = ia.filter_instagram_response(response);
-					console.log(imagesData);
+					callback(imagesData);
 				},
 				error: function (response, textStatus, errorThrown) {
 					alert('oops! something went wrong while requesting your images');
