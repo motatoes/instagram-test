@@ -66,7 +66,6 @@ var InstagramApp = (function(window, document, $) {
 				contentType: "application/json", 
 				success: function(response) {
 					var imagesData = ia.filter_instagram_response(response);
-					)
 					console.log(imagesData);
 				},
 				error: function (response, textStatus, errorThrown) {
