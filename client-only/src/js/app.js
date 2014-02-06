@@ -58,7 +58,8 @@ var InstagramApp = (function(window, document, $) {
 			$.ajax({
 				url: media_url,
 				jsonp: "callback",
-				dataType: "json", 
+				// dataType: "jsonp",
+				contentType: "application/json", 
 				success: function(data) {
 					JSON.parse(data);
 					console.log(data)
