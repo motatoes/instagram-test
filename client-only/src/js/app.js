@@ -15,7 +15,9 @@ var InstagramApp = (function(window, document, $) {
 		// Id of the authentication button
 		authenticate_btn_id: "instagram_get_btn",
 		images_div_id: "photos",
+		seemore_div_id = "seemore",
 
+		
 		init: function() {
 			var ia = InstagramApp,
 				accessToken,
@@ -148,6 +150,8 @@ var InstagramApp = (function(window, document, $) {
 			return url;
 		},
 
+
+		// Fetch the access token from the url 
 		get_access_token: function() {
 			var a = document.createElement("a"),
 					token;
