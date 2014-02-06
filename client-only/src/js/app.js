@@ -43,6 +43,7 @@ var InstagramApp = (function(window, document, $) {
 			}
 			else {
 				// return the token
+				console.log(token);
 				return token;
 			}
 
@@ -66,7 +67,7 @@ var InstagramApp = (function(window, document, $) {
 					alert('oops! something went wrong while requesting your images');
 				}
 
-			})
+			});
 		},
 
 		craft_authentication_url: function() {
