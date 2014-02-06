@@ -61,7 +61,7 @@ var InstagramApp = (function(window, document, $) {
 				dataType: "jsonp",
 				contentType: "application/json", 
 				success: function(response) {
-					console.log(response.data);
+					console.log(response);
 				},
 				error: function (response, textStatus, errorThrown) {
 					alert('oops! something went wrong while requesting your images');
