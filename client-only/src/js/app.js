@@ -32,7 +32,7 @@ var InstagramApp = (function(window, document, $) {
 			seemore_btn = $('#' + ia.seemore_div_id);
 			// Event listener
 
-			token = ia.check_access_token();
+			token = ia.get_access_token();
 			if (token == null) {
 				getpics_btn.innerHTML = "Authenticate first"; 
 			}
